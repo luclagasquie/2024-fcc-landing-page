@@ -1,0 +1,243 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: hsl(227, 61%, 32%);
+    --background: hsl(60, 71%, 94%);
+    --background--dark: hsl(60, 45%, 90%);
+    --radius: 1rem;
+}
+
+body {
+    background-color: hsl(60, 71%, 94%);
+    font-size: 1.6rem;
+}
+
+section {
+    padding-inline: 6rem;
+    padding-block: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+:focus {
+    border: none;
+    box-shadow: none;
+}
+
+:focus-visible {
+    border: 2px solid var(--primary)!important;
+    box-shadow: none;
+    outline: none;
+}
+
+/* FORMS */
+
+input {
+    height: 5rem;
+    padding: 1rem;
+    font-size: initial;
+    border-radius: var(--radius);
+}
+
+input[type="email"] {
+    width: 50%;
+    min-width: 20ch;
+    border: 1px solid var(--background--dark);
+}
+
+input[type="submit"] {
+    padding-inline: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--background);
+    background-color: var(--primary);
+    border: none;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+    font-size: 7rem;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    max-width: 80ch;
+}
+
+@media screen and (max-width:1000px) {
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+    z-index: 999;
+    border-bottom: 1px solid hsl(0,0%,90%);
+}
+
+header > section {flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 3rem;
+}
+
+#header-img {
+    width: 25rem;
+}
+
+#nav-bar ul {
+    display: flex;
+    list-style: none;
+    gap: 4rem;
+}
+
+#nav-bar a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2.1rem;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.03em;
+    color: black;
+    transition: all ease-in-out .3s;
+}
+
+#nav-bar a:hover {
+    color: var(--primary);
+    cursor: pointer;
+}
+
+@media screen and (max-width:1000px) {
+
+    header {
+        position: initial;
+    }
+
+    header > section, #nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #nav-bar ul {
+        gap: 1.5rem;
+    }
+}
+
+/* HERO */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero__media-wrapper {
+    background-color: var(--background--dark);
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.hero__media-wrapper::before {
+    content:'';
+    border: 0;
+    background: transparent;
+    width: 0;
+    height: 24px;
+    border-color: transparent transparent transparent black;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 17px 0 17px 30px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero__content-wrapper > h2:first-of-type {
+    margin-top: 1rem;
+}
+
+.hero__content-wrapper > p:first-of-type {
+    max-width: 70ch;
+}
+
+.hero__content-wrapper #form  {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+@media screen and (max-width:1000px) {
+
+    .hero {
+    grid-template-columns: 1fr;
+    }
+
+    .hero__content-wrapper #form  {
+        flex-direction: column;
+    }
+
+    input[type="email"] {
+        width: 100%;
+    }
+}
+
+/* DISCOVER SECTION */
+
+#discover {
+    background-color: var(--background--dark);
+}
+
+/* FLY SECTION */
+
+#fly > div:has(h2) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: .5em;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+}
